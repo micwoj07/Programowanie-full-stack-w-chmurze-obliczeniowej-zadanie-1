@@ -70,7 +70,7 @@ Wnioski: HPA poprawnie wyskalowało aplikację do poziomu 10 replik. Próba utwo
 Architektura została oparta na separacji warstw poprzez namespace. 
 - W pliku 02-workloads.yaml zastosowano ,,podAffinity" dla backendu względem mysql, co optymalizuje komunikację (ten sam node).
 - Dla frontendu użyto ,,podAntiAffinity", aby fizycznie odseparować go od warstwy danych.
-- Dobór obrazów (nginx:1.27-alpine) podyktowany był minimalizacją rozmiaru kontenerów i zwiększeniem bezpieczeństwa (Alpine Linux).
+- Wybrałem obrazy w wersji nginx:1.27-alpine zamiast standardowych, ponieważ są znacznie mniejsze (ok. 10-20MB), co przyspiesza pobieranie obrazów przez węzły, a mniejsza ilość zainstalowanych pakietów w wersji Alpine zwiększa bezpieczeństwo kontenerów
 
 
 ## Część nieobowiązkowa
